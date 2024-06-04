@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema({
         type:String,
         default:"",
     },
-    CoverImg:{
+    coverImg:{
         type:String,
         default:"",
     },
