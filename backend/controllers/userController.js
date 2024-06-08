@@ -65,6 +65,7 @@ export const followUnfollow = async(req,res)=>{
                 from:req.user._id,
                 to : userToModify._id
             })
+            
             await newNotification.save()
 
             //return the id of the user as a response

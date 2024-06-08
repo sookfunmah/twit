@@ -267,7 +267,7 @@ export const getFollowingPosts = async (req,res)=>{
 
 
 ////////////////////////////////////////////
-//            GET User's Posts             //
+//            GET User's Posts            //
 ////////////////////////////////////////////
 export const getUserPosts = async (req,res) =>{
 
