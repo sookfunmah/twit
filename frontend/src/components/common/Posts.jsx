@@ -4,23 +4,25 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 
 
-const Posts = ({feedType}) => {
-
-
-
+const Posts = ({feedType, username, userId}) => {
 	const getPostEndpoint = () =>{
 		switch(feedType){
 			case "forYou" :
-				return " /api/posts/all";
+				return "/api/posts/all";
 			case "following" :
-				return " /api/posts/following";
+				return "/api/posts/following";
+			case "posts":
+				return `/api/posts/user/${username}`;
+			case "likes":
+				return `/api/posts/likes/${userId}`;
 			default:
-				return "/api/posts/all"
+				return "/api/posts/all";
 
 		}
-	}
+	};
 
 	const POST_ENDPOINT = getPostEndpoint();
+
 	const {data:posts, isLoading, refetch, isRefetching}= useQuery({
 		queryKey : ["posts"],
 		queryFn: async () =>{
@@ -36,16 +38,15 @@ const Posts = ({feedType}) => {
 				return data
 				
 			} catch (error) {
-				throw new Error(error)
+				throw new Error(error.message)
 			}
 
 		}
 	})
 
 	useEffect(() => {
-		refetch();
-
-	},[feedType,refetch])
+		refetch()
+	},[feedType,refetch,username])
 
 
 	return (
