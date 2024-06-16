@@ -9,7 +9,7 @@ const useFollow =()=>{
         mutationFn : async (userId) =>{
             
             try { 
-                const res = await fetch(`api/users/follow/${userId}`,{
+                const res = await fetch(`/api/users/follow/${userId}`,{
                     method : "POST"
                 })
 
