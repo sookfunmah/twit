@@ -11,6 +11,7 @@ import connectMongoDB from "./db/connectMongoDB.js";
 import notificationRoutes from "./routes/notificationRoute.js"
 
 dotenv.config();
+
 cloudinary.config({
     cloud_name:process.env.CLOUDINARY_CLOUD_NAME,
     api_key:process.env.CLOUDINARY_API_KEY,
@@ -20,7 +21,7 @@ cloudinary.config({
 
 const app = express();
 const PORT = process.env.PORT || 8000;
-const __dirname = path.resolve()
+// const __dirname = path.resolve()
 
 app.use(express.json({limit:"5mb"}));                        //to parse req.body
 app.use(express.urlencoded({ extended:true }))  // to parse formdata urlencoded
@@ -47,8 +48,11 @@ app.listen (PORT, ()=>{
     connectMongoDB()
 })
 
-// test route
-app.get("/test", (req, res) => {
-    res.send("Server is running");
-});
-
+//Checking in vercel if connected to backend
+app.get("/api/hello", (req, res) => {
+    res.json({
+      message: "Hello Backend",
+    });
+  });
+  
+  /////////////////////
