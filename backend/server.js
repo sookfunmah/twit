@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import cookieParser from "cookie-parser"
 import {v2 as cloudinary} from "cloudinary"
 import path from "path"
+import { fileURLToPath } from 'url'; // Import fileURLToPath
 
 import authRoutes from "./routes/authRoute.js"
 import usersRoutes from "./routes/usersRoute.js"
@@ -22,6 +23,7 @@ cloudinary.config({
 const app = express();
 const PORT = process.env.PORT || 8000;
 // const __dirname = path.resolve()
+const __dirname = path.dirname(fileURLToPath(import.meta.url)); // Define __dirname using import.meta.url
 
 app.use(express.json({limit:"5mb"}));                        //to parse req.body
 app.use(express.urlencoded({ extended:true }))  // to parse formdata urlencoded
