@@ -43,10 +43,6 @@ app.use("/api/notifications", notificationRoutes)
 //     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
 // })
 
-app.listen (PORT, ()=>{
-    console.log(`server is running on port ${PORT}`)
-    connectMongoDB()
-})
 
 //Checking in vercel if connected to backend
 app.get("/api/hello", (req, res) => {
@@ -56,3 +52,8 @@ app.get("/api/hello", (req, res) => {
   });
   
   /////////////////////
+  
+  app.listen (PORT, ()=>{
+    console.log(`server is running on port ${PORT}`)
+    connectMongoDB()
+})
