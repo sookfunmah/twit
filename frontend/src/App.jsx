@@ -17,7 +17,8 @@ function App() {
     queryKey:['authUser'],
     queryFn:async() =>{
       try {
-        const res = await fetch ("/api/auth/me")
+        // const res = await fetch ("/api/auth/me")
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/me`)
         const data =await res.json()
 
         if(data.error) return null
