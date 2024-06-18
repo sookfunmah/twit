@@ -5,6 +5,7 @@ import {v2 as cloudinary} from "cloudinary"
 import path from "path"
 import { fileURLToPath } from 'url'; // Import fileURLToPath
 
+import cors from'cors'
 import authRoutes from "./routes/authRoute.js"
 import usersRoutes from "./routes/usersRoute.js"
 import postRoutes from "./routes/postRoute.js"
@@ -24,6 +25,8 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 // const __dirname = path.resolve()
 const __dirname = path.dirname(fileURLToPath(import.meta.url)); // Define __dirname using import.meta.url
+
+app.use(cors())
 
 app.use(express.json({limit:"5mb"}));                        //to parse req.body
 app.use(express.urlencoded({ extended:true }))  // to parse formdata urlencoded
