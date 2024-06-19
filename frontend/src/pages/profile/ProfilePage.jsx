@@ -185,7 +185,7 @@ const ProfilePage = () => {
 													rel='noreferrer'
 													className='text-sm text-blue-500 hover:underline'
 												>
-													youtube.com/@me
+													{user?.link}
 												</a>
 											</>
 										</div>
@@ -194,6 +194,7 @@ const ProfilePage = () => {
 										<IoCalendarOutline className='w-4 h-4 text-slate-500' />
 										<span className='text-sm text-slate-500'>
 											{memberSinceDate}
+											
 										</span>
 									</div>
 								</div>
