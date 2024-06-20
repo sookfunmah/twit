@@ -91,7 +91,7 @@ const ProfilePage = () => {
 								</Link>
 								<div className='flex flex-col'>
 									<p className='font-bold text-lg'>{user?.fullname}</p>
-									<span className='text-sm text-slate-500'>{POSTS?.length} posts</span>
+									{/* <span className='text-sm text-slate-500'>{Posts?.length} posts</span> */}
 								</div>
 							</div>
 							{/* COVER IMG */}
@@ -194,7 +194,7 @@ const ProfilePage = () => {
 										<IoCalendarOutline className='w-4 h-4 text-slate-500' />
 										<span className='text-sm text-slate-500'>
 											{memberSinceDate}
-											
+
 										</span>
 									</div>
 								</div>
